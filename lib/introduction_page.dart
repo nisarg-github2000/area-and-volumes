@@ -1,43 +1,48 @@
-// lib/learn_page.dart
+// lib/introduction_page.dart
 
 import 'package:flutter/material.dart';
 import 'package:area_and_volume/app_localizations.dart';
-import 'package:area_and_volume/learn/area_page.dart'; // Import AreaPage
-import 'package:area_and_volume/learn/volume_page.dart'; // Import VolumePage
 
-class LearnPage extends StatelessWidget {
-  const LearnPage({super.key});
+class IntroductionPage extends StatelessWidget {
+  final Map<String, String> localizedStrings;
+  final VoidCallback changeLanguage;
+
+  IntroductionPage({
+    super.key,
+    required this.localizedStrings,
+    required this.changeLanguage,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(Icons.home, size: 30), // Increased icon size
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        title: Text(
-          AppLocalizations.of(context)!.translate('learn_select_topic') ??
-              'Learn - Select Topic',
-          style: const TextStyle(
-              fontSize: 30), // Increased font size for the AppBar title
-        ),
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0, // Optional: Remove the shadow under the AppBar
-      ),
       body: Stack(
         children: [
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildButton(context, 'area', Colors.purple, '/area'),
+              children: <Widget>[
+                const SizedBox(height: 20),
+                Text(
+                  localizedStrings['title'] ?? 'Loading...',
+                  style: const TextStyle(
+                    fontSize: 36, // Increased font size for the title
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 50), // Adjusted space for consistency
+                _buildButton(context, localizedStrings['learn'] ?? 'Learn',
+                    Colors.pink, '/learn'),
                 const SizedBox(height: 30),
-                _buildButton(context, 'volume', Colors.blue, '/volume'),
+                _buildButton(
+                    context,
+                    localizedStrings['practice'] ?? 'Practice',
+                    Colors.green,
+                    '/practice'),
+                const SizedBox(height: 30),
+                _buildButton(context, localizedStrings['play'] ?? 'Play',
+                    Colors.blue, '/play'),
               ],
             ),
           ),
@@ -49,9 +54,7 @@ class LearnPage extends StatelessWidget {
               child: Switch(
                 value: Localizations.localeOf(context).languageCode == 'es',
                 onChanged: (bool value) {
-                  String newLocale = value ? 'es' : 'en';
-                  Navigator.of(context).pushReplacementNamed('/');
-                  // Implement changing the locale here
+                  changeLanguage();
                 },
                 activeColor: Colors.green,
               ),
@@ -63,14 +66,13 @@ class LearnPage extends StatelessWidget {
   }
 
   Widget _buildButton(
-      BuildContext context, String textKey, Color color, String route) {
+      BuildContext context, String text, Color color, String route) {
     return SizedBox(
       width: 300, // Increased width for the button
       height: 70, // Increased height for the button
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(
-              context, route); // Navigate to the specified route
+          Navigator.pushNamed(context, route);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
@@ -79,7 +81,7 @@ class LearnPage extends StatelessWidget {
           ),
         ),
         child: Text(
-          AppLocalizations.of(context)!.translate(textKey) ?? textKey,
+          text,
           style: const TextStyle(
             fontSize: 24, // Increased font size for button text
             color: Colors.white,

@@ -1,12 +1,10 @@
-// lib/learn_page.dart
+// lib/practice_page.dart
 
 import 'package:flutter/material.dart';
 import 'package:area_and_volume/app_localizations.dart';
-import 'package:area_and_volume/learn/area_page.dart'; // Import AreaPage
-import 'package:area_and_volume/learn/volume_page.dart'; // Import VolumePage
 
-class LearnPage extends StatelessWidget {
-  const LearnPage({super.key});
+class PracticePage extends StatelessWidget {
+  const PracticePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +19,12 @@ class LearnPage extends StatelessWidget {
           },
         ),
         title: Text(
-          AppLocalizations.of(context)!.translate('learn_select_topic') ??
-              'Learn - Select Topic',
+          AppLocalizations.of(context)!.translate('practice_select_topic') ??
+              'Practice - Select Topic', // Updated title text
           style: const TextStyle(
-              fontSize: 30), // Increased font size for the AppBar title
+            fontSize: 30, // Increased font size for the AppBar title
+          ),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0, // Optional: Remove the shadow under the AppBar
       ),
       body: Stack(
         children: [
@@ -35,9 +32,9 @@ class LearnPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildButton(context, 'area', Colors.purple, '/area'),
+                _buildButton(context, 'Area', Colors.orange),
                 const SizedBox(height: 30),
-                _buildButton(context, 'volume', Colors.blue, '/volume'),
+                _buildButton(context, 'Volume', Colors.teal),
               ],
             ),
           ),
@@ -62,16 +59,12 @@ class LearnPage extends StatelessWidget {
     );
   }
 
-  Widget _buildButton(
-      BuildContext context, String textKey, Color color, String route) {
+  Widget _buildButton(BuildContext context, String textKey, Color color) {
     return SizedBox(
       width: 300, // Increased width for the button
       height: 70, // Increased height for the button
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(
-              context, route); // Navigate to the specified route
-        },
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           shape: RoundedRectangleBorder(
