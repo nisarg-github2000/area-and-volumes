@@ -31,3 +31,6 @@ flutter:
     - assets/translations/es.json
     - assets/images/area_example.png
     - assets/images/area_rectangle.png
+    - assets/images/rectangle_q1.png
+    - assets/images/rectangle_q2.png
+    - assets/images/rectangle_q3.png

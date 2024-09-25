@@ -10,6 +10,8 @@ import 'package:area_and_volume/learn_page.dart';
 import 'package:area_and_volume/practice_page.dart'; // Import PracticePage
 import 'package:area_and_volume/learn/area_page.dart'; // Import AreaPage
 import 'package:area_and_volume/learn/volume_page.dart'; // Import VolumePage
+import 'package:area_and_volume/practice_area_selection_page.dart';
+import 'package:area_and_volume/practice_questions_page.dart';
 import './introduction_page.dart';
 
 void main() {
@@ -91,6 +93,8 @@ class AreaAndVolumeAppState extends State<AreaAndVolumeApp> {
         '/practice': (context) => const PracticePage(),
         '/area': (context) => const AreaPage(), // Route for AreaPage
         '/volume': (context) => const VolumePage(), // Route for VolumePage
+        '/practiceAreaSelection': (context) => const PracticeAreaSelection(),
+        '/practiceRectange': (context) => const PracticeQuestionsPage()
       },
       initialRoute: '/',
     );

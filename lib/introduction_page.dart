@@ -1,13 +1,13 @@
 // lib/introduction_page.dart
 
 import 'package:flutter/material.dart';
-import 'package:area_and_volume/app_localizations.dart';
+import './app_localizations.dart';
 
 class IntroductionPage extends StatelessWidget {
   final Map<String, String> localizedStrings;
   final VoidCallback changeLanguage;
 
-  IntroductionPage({
+  const IntroductionPage({
     super.key,
     required this.localizedStrings,
     required this.changeLanguage,

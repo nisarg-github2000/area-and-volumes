@@ -32,9 +32,11 @@ class PracticePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildButton(context, 'Area', Colors.orange),
+                _buildButton(
+                    context, 'Area', Colors.orange, '/practiceAreaSelection'),
                 const SizedBox(height: 30),
-                _buildButton(context, 'Volume', Colors.teal),
+                _buildButton(
+                    context, 'Volume', Colors.teal, '/practiceAreaSelection'),
               ],
             ),
           ),
@@ -59,12 +61,15 @@ class PracticePage extends StatelessWidget {
     );
   }
 
-  Widget _buildButton(BuildContext context, String textKey, Color color) {
+  Widget _buildButton(
+      BuildContext context, String textKey, Color color, String route) {
     return SizedBox(
       width: 300, // Increased width for the button
       height: 70, // Increased height for the button
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, route);
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           shape: RoundedRectangleBorder(
