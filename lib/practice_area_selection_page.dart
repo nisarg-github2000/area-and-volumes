@@ -10,7 +10,7 @@ class PracticeAreaSelection extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: const Text(
           'Practice - Select Shape',
           style: TextStyle(fontSize: 22),

@@ -13,7 +13,8 @@ class PracticePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.home, size: 30), // Increased icon size
+          icon: const Icon(Icons.home,
+              color: Colors.black, size: 30), // Increased icon size
           onPressed: () {
             Navigator.of(context).pop();
           },

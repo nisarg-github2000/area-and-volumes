@@ -149,7 +149,23 @@ class _PracticeQuestionsPageState extends State<PracticeQuestionsPage> {
 
   void checkAnswer(String selectedOption) {
     if (selectedOption == questions[currentIndex].correctAnswer) {
-      // Handle correct answer
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Correct Answer"),
+            content: Image.asset("assets/images/Q1_correct_answer_image.png"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Close"),
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+              ),
+            ],
+          );
+        },
+      );
     } else {
       // Handle incorrect answer
     }

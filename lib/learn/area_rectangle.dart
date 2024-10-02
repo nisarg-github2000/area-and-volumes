@@ -64,7 +64,7 @@ class AreaRectanglePage extends StatelessWidget {
                 // Descriptive Text
                 const Text(
                   '• If you are measuring the area of a rectangle, then the area will equal the length multiplied by the width\n'
-                  '• Or Area of a rectangle = length x width\n'
+                  '• Area of a rectangle = length x width\n'
                   '• We can also write this as A = l x w or A = lw, where A is the area, l is the length and w is the width\n'
                   '• The area of the rectangle below is 5 x 3 = 15 squares',
                   style: TextStyle(

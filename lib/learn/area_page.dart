@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import './area_rectangle.dart';
+import './area_page.dart';
 
 class AreaPage extends StatelessWidget {
   const AreaPage({super.key});
@@ -47,9 +48,10 @@ class AreaPage extends StatelessWidget {
                 // Bulleted List Centered
                 const Center(
                   child: Text(
-                    '• Area is the amount of space that is inside a shape\n'
-                    '• Because it is an amount of space, it has to be measured in squares\n'
-                    '• If the shape is measured in cm, then the area would be measured in square cm or cm²',
+                    '• Area is the amount of space that is inside a shape.\n'
+                    '• Because it is an amount of space, it has to be measured in squares.\n'
+                    '• Centimeter (cm) is a unit used to measure length or distance. Example, the side of a square could be 5 cm long.\n'
+                    '• If the shape is measured in Centimeter (cm), then the area would be measured in square cm or cm² (square centimeter or centimeter square).',
                     style: TextStyle(
                       fontSize: 24, // Font size less than the title
                       color: Colors.black,
